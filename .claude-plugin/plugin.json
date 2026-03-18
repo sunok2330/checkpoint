@@ -1,0 +1,22 @@
+{
+  "name": "checkpoint",
+  "version": "1.0.0",
+  "description": "Persistent memory archival — save discoveries, prevent amnesia across sessions",
+  "author": "Jyo238",
+  "license": "MIT",
+  "skills": [
+    {
+      "name": "checkpoint",
+      "path": "skills/checkpoint/SKILL.md",
+      "command": "checkpoint",
+      "description": "Save all discoveries from current conversation to persistent memory"
+    }
+  ],
+  "commands": [
+    {
+      "name": "checkpoint",
+      "path": "commands/checkpoint.md",
+      "description": "Trigger memory archival"
+    }
+  ]
+}

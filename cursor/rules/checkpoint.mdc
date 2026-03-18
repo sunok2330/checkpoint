@@ -1,0 +1,51 @@
+---
+description: Persistent memory archival — save discoveries to prevent amnesia across sessions
+globs:
+alwaysApply: false
+---
+
+# Checkpoint — Memory Archival for Cursor
+
+When triggered, perform a complete knowledge archival:
+
+## Workflow
+
+1. **SCAN** the current conversation for solved problems, failed approaches, user preferences, API paths, and architecture decisions
+2. **CHECK** the `memory/MEMORY.md` index to see what's already saved
+3. **SAVE** each new discovery as a memory file with frontmatter:
+
+```markdown
+---
+name: {{descriptive name}}
+description: {{one-line summary}}
+type: {{user | feedback | project | reference}}
+---
+
+{{content with: Problem, Wrong approaches, Correct solution, Verification}}
+```
+
+4. **UPDATE** the `MEMORY.md` index
+5. **VERIFY** completeness
+
+## Anti-Amnesia Protocol
+
+Before starting any task:
+- Read `MEMORY.md` to check for relevant prior discoveries
+- If existing memory entries relate to the task, read those files FIRST
+
+After any breakthrough:
+- Immediately save the discovery to memory BEFORE moving on
+- Include what worked, what didn't, and the correct approach
+
+Before retrying a failed approach:
+- Check memory: have we already solved this?
+- If yes, use the known solution — don't rediscover from scratch
+
+## Memory Types
+
+| Type | What to capture |
+|------|----------------|
+| **user** | Role, goals, preferences, expertise |
+| **feedback** | Corrections AND confirmations from user |
+| **project** | Goals, decisions, deadlines, context |
+| **reference** | Pointers to external systems |

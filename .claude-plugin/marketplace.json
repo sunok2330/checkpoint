@@ -1,0 +1,20 @@
+{
+  "name": "checkpoint",
+  "display_name": "Checkpoint",
+  "tagline": "Never lose what your AI learned",
+  "description": "Persistent memory archival skill for AI coding assistants. Systematically captures breakthroughs, failed approaches, user preferences, and project context — so your AI never solves the same problem twice.",
+  "category": "productivity",
+  "tags": ["memory", "persistence", "knowledge-management", "anti-amnesia"],
+  "icon": "brain",
+  "author": {
+    "name": "Jyo238",
+    "url": "https://github.com/Jyo238"
+  },
+  "repository": "https://github.com/Jyo238/checkpoint",
+  "supported_platforms": [
+    "claude-code",
+    "cursor",
+    "vscode-copilot",
+    "codex-cli"
+  ]
+}
