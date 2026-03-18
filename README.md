@@ -25,6 +25,14 @@ Your AI coding assistant is brilliant within a single conversation — but start
 
 **Checkpoint fixes this.** One command (`/checkpoint`) captures every breakthrough, failed approach, user preference, and project context into structured, persistent memory files that survive across sessions — so your AI never solves the same problem twice.
 
+<div align="center">
+<img src="docs/screenshot.jpg" alt="Checkpoint in action" width="680">
+<br>
+<em>One <code>/checkpoint</code> command — 8 memory files saved, 4 updated, 1 deleted, index refreshed.</em>
+</div>
+
+<br>
+
 ## The Problem
 
 AI coding assistants are brilliant within a single conversation — but start a new session and everything is forgotten:
