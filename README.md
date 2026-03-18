@@ -1,12 +1,29 @@
+<div align="center">
+
 # Checkpoint
 
-**Never lose what your AI learned.**
+**Persistent memory layer for AI coding assistants.**<br>
+**Eliminate rediscovery. Ship faster.**
 
-Checkpoint is a persistent memory archival skill for AI coding assistants. It systematically captures breakthroughs, failed approaches, user preferences, and project context — so your AI never solves the same problem twice.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-orange)](https://docs.anthropic.com/en/docs/claude-code)
+[![Cursor](https://img.shields.io/badge/Cursor-rule-purple)](https://cursor.sh)
+[![Copilot](https://img.shields.io/badge/Copilot-instructions-green)](https://github.com/features/copilot)
+[![Codex](https://img.shields.io/badge/OpenAI_Codex-CLI-black)](https://github.com/openai/codex)
+
+`claude install-skill Jyo238/checkpoint`
 
 [繁體中文](README.zh-TW.md)
 
+</div>
+
 ---
+
+> *“Every new AI session starts from zero. Checkpoint makes it start from where you left off.”*
+
+Your AI coding assistant is brilliant within a single conversation — but start a new session and everything is forgotten. The API quirk it debugged for 30 minutes? Gone. The user preference you corrected? Forgotten. The architectural decision it finally understood? Rediscovered from scratch.
+
+**Checkpoint fixes this.** One command (`/checkpoint`) captures every breakthrough, failed approach, user preference, and project context into structured, persistent memory files that survive across sessions — so your AI never solves the same problem twice.
 
 ## The Problem
 
