@@ -1,3 +1,7 @@
+---
+description: Checkpoint — Persistent Memory Archival
+---
+
 # Checkpoint — Persistent Memory Archival
 
 You are being asked to perform a complete knowledge archival. This is NOT optional.

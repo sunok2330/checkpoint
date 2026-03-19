@@ -1,3 +1,7 @@
+---
+description: Checkpoint — Persistent Memory Archival
+---
+
 # Checkpoint — Persistent Memory Archival
 
 > **"What you don't save, you will rediscover — painfully."**
