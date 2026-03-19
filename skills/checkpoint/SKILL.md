@@ -49,19 +49,43 @@ Checkpoint is a memory persistence skill that prevents AI coding assistants from
                │
                ▼
 ┌─────────────────────────────────────┐
-│  Step 3: SAVE new discoveries       │
+│  Step 2.5: CONSOLIDATE (lightweight)│
 │  ─────────────────────────────────  │
-│  For each unsaved finding:          │
-│  1. Classify type (see table below) │
-│  2. Write memory file w/ frontmatter│
-│  3. Update MEMORY.md index          │
+│  • Fix ghosts (dead index links)    │
+│  • Fix orphans (unindexed files)    │
+│  • Flag duplicates for later        │
+│  • Cross-scope check (project ↔     │
+│    global) if both exist            │
+│  (Full consolidation: use           │
+│   /checkpoint:consolidate)          │
 └──────────────┬──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
-│  Step 4: VERIFY completeness        │
+│  Step 3: SAVE new discoveries       │
+│  ─────────────────────────────────  │
+│  For each unsaved finding:          │
+│  1. Classify type (see table below) │
+│  2. If existing memory covers same  │
+│     topic → UPDATE it, don't create │
+│     a duplicate                     │
+│  3. Write memory file w/ frontmatter│
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│  Step 4: UPDATE index               │
+│  ─────────────────────────────────  │
+│  Add new entries to MEMORY.md       │
+│  Update descriptions if changed     │
+└──────────────┬──────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────┐
+│  Step 5: VERIFY completeness        │
 │  ─────────────────────────────────  │
 │  List all saved entries             │
+│  Report consolidation findings      │
 │  Confirm nothing was missed         │
 └─────────────────────────────────────┘
 ```
@@ -103,6 +127,36 @@ type: {{user | feedback | project | reference}}
 - Debugging solutions already captured in code/commits
 - Anything already in CLAUDE.md files
 - Ephemeral task details or temporary state
+
+## Memory Consolidation
+
+Over time, memories accumulate duplicates, stale entries, and index inconsistencies. Checkpoint includes a consolidation system to keep memory clean.
+
+### Lightweight Pass (during `/checkpoint`)
+
+Step 2.5 runs automatically during every checkpoint:
+- **Ghosts**: Remove MEMORY.md links pointing to deleted files
+- **Orphans**: Add unindexed memory files to MEMORY.md
+- **Cross-scope check**: If both project and global memory directories exist, flag duplicates across scopes
+- **Duplicate flag**: Note duplicate candidates in the report (don't auto-merge)
+
+### Full Consolidation (`/checkpoint:consolidate`)
+
+A standalone command for periodic deep maintenance:
+1. **Inventory** all memory files and index entries
+2. **Detect** duplicates, overlaps, ghosts, orphans, stale entries, and quality issues
+3. **Plan** proposed actions and present to user for approval
+4. **Execute** approved merges, deletions, and index fixes
+5. **Report** before/after stats and items needing user attention
+
+See [references/consolidation.md](references/consolidation.md) for the full algorithm.
+
+### Cross-Scope Handling
+
+When both global (`~/.claude/memory/`) and project memory exist:
+- **Promotion residue**: Same file in both scopes → delete project copy (global is canonical)
+- **Scope mismatch**: `user` type in project scope → suggest promotion to global
+- **Conflict**: Same topic, different content → flag for user decision (never auto-resolve)
 
 ## Anti-Amnesia Protocol
 

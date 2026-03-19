@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: Save all discoveries from current session to persistent memory
 ---
 
@@ -9,7 +9,13 @@ Perform a complete knowledge archival:
 
 2. Read the `memory/MEMORY.md` index to check what's already saved.
 
-3. For each new discovery, create a memory file in `memory/` with this format:
+3. Consolidate (lightweight) — fix index issues before saving new entries:
+   - Remove MEMORY.md links to missing files (ghosts)
+   - Add unindexed memory files to MEMORY.md (orphans)
+   - If both project and global memory exist, flag cross-scope duplicates
+   - Note any duplicate candidates in the final report
+
+4. For each new discovery, create a memory file in `memory/` with this format. If an existing memory already covers the same topic, update that file instead of creating a new one:
 
 ```markdown
 ---
@@ -24,6 +30,6 @@ type: {{user | feedback | project | reference}}
 **Verification**: ...
 ```
 
-4. Update `memory/MEMORY.md` index with links to new files.
+5. Update `memory/MEMORY.md` index with links to new files.
 
-5. List all saved entries to confirm completeness.
+6. List all saved entries to confirm completeness. Include any consolidation findings (ghosts fixed, orphans indexed, duplicates flagged).

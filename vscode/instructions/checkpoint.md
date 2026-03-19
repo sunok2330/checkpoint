@@ -17,9 +17,17 @@ Checkpoint is a persistent memory system. When invoked, systematically capture a
 ## Workflow
 1. Scan conversation for discoveries
 2. Check existing memory index
-3. Save new findings with frontmatter format
-4. Update MEMORY.md index
-5. Verify completeness
+3. Consolidate (lightweight) — fix ghosts, orphans, flag cross-scope and intra-scope duplicates
+4. Save new findings with frontmatter format (update existing memories if same topic)
+5. Update MEMORY.md index
+6. Verify completeness and report consolidation findings
+
+## Memory Consolidation
+For deep maintenance, run consolidation to:
+- Merge duplicate memories (same type, with user approval)
+- Flag stale project memories
+- Fix quality issues (missing Why/How to apply)
+- Resolve cross-scope duplicates (project vs global)
 
 ## Anti-Amnesia
 - Always check memory before starting tasks

@@ -18,16 +18,28 @@ Review the entire conversation history and find ALL:
 
 Read the memory/MEMORY.md index to determine which discoveries are already saved and which are new.
 
-## Step 3: Save new discoveries
+## Step 3: Consolidate (lightweight)
+
+Before saving new entries, fix any existing index issues:
+1. **Ghosts**: Check each MEMORY.md link — if the target file is missing, remove the entry
+2. **Orphans**: Check each `.md` file in the memory directory — if not in MEMORY.md, add it
+3. **Cross-scope**: If both project and global (`~/.claude/memory/`) memory directories exist, check for duplicates across scopes and flag them
+4. **Duplicate candidates**: If any existing memories appear to duplicate each other, note them in the final report (do not auto-merge — use `/checkpoint:consolidate` for full consolidation)
+
+## Step 4: Save new discoveries
 
 For each unsaved discovery:
 1. Classify its type (user / feedback / project / reference)
-2. Write it to a dedicated memory file with full frontmatter
-3. Update the MEMORY.md index
+2. Check if an existing memory covers the same topic — if so, UPDATE that file instead of creating a new one
+3. Write it to a dedicated memory file with full frontmatter
 
-## Step 4: Verify
+## Step 5: Update index
 
-List all saved memory entries and confirm completeness.
+Add new entries to MEMORY.md. Update descriptions for any modified existing memories.
+
+## Step 6: Verify
+
+List all saved memory entries and confirm completeness. Include any consolidation findings (ghosts fixed, orphans indexed, duplicates flagged).
 
 ## Format requirements
 

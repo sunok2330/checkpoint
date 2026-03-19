@@ -12,7 +12,12 @@ When triggered, perform a complete knowledge archival:
 
 1. **SCAN** the current conversation for solved problems, failed approaches, user preferences, API paths, and architecture decisions
 2. **CHECK** the `memory/MEMORY.md` index to see what's already saved
-3. **SAVE** each new discovery as a memory file with frontmatter:
+3. **CONSOLIDATE** (lightweight) — fix index issues before saving:
+   - Remove dead links in MEMORY.md (ghosts)
+   - Add unindexed files to MEMORY.md (orphans)
+   - Flag cross-scope duplicates if both project and global memory exist
+   - Note duplicate candidates for later full consolidation
+4. **SAVE** each new discovery as a memory file with frontmatter. If an existing memory covers the same topic, update it instead of creating a duplicate:
 
 ```markdown
 ---
@@ -24,8 +29,16 @@ type: {{user | feedback | project | reference}}
 {{content with: Problem, Wrong approaches, Correct solution, Verification}}
 ```
 
-4. **UPDATE** the `MEMORY.md` index
-5. **VERIFY** completeness
+5. **UPDATE** the `MEMORY.md` index
+6. **VERIFY** completeness and report any consolidation findings
+
+## Memory Consolidation
+
+For deep maintenance, run consolidation separately to:
+- Detect and merge duplicate memories (same type, user approval required)
+- Flag stale project memories with past dates
+- Check quality (missing Why/How to apply sections)
+- Resolve cross-scope duplicates (project vs global memory)
 
 ## Anti-Amnesia Protocol
 

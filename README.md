@@ -72,8 +72,18 @@ Checkpoint operates on two layers:
 Explicitly trigger a full knowledge archival. The AI will:
 1. **Scan** the conversation for all discoveries
 2. **Check** existing memory to avoid duplicates
-3. **Save** new findings as structured memory files
-4. **Verify** completeness
+3. **Consolidate** — fix index issues (ghosts, orphans, cross-scope duplicates)
+4. **Save** new findings as structured memory files (or update existing ones)
+5. **Update** the MEMORY.md index
+6. **Verify** completeness and report consolidation findings
+
+### Memory Consolidation: `/checkpoint:consolidate`
+Over time, memories accumulate duplicates and stale entries. Run `/checkpoint:consolidate` for deep maintenance:
+- **Duplicate detection** — find and merge memories covering the same topic (with your approval)
+- **Cross-scope resolution** — detect duplicates between project and global memory
+- **Staleness detection** — flag project memories with past dates or outdated references
+- **Quality checks** — identify memories missing required structure (Why/How to apply)
+- **Index repair** — remove dead links, add unindexed files
 
 ### Passive Layer: Anti-Amnesia Protocol
 A set of rules added to your `CLAUDE.md` (or equivalent) that runs automatically:
@@ -100,8 +110,9 @@ claude install-skill Jyo238/checkpoint
 
 This installs:
 - `/checkpoint` slash command
+- `/checkpoint:consolidate` sub-command for memory maintenance
 - Skill definition for the AI to follow
-- Reference docs for memory types and anti-amnesia protocol
+- Reference docs for memory types, consolidation algorithm, and anti-amnesia protocol
 
 **Optional**: Add the Anti-Amnesia Protocol to your project's `CLAUDE.md`:
 
@@ -148,9 +159,12 @@ checkpoint/
 │   ├── SKILL.md                          # Core skill definition
 │   └── references/
 │       ├── anti-amnesia-protocol.md      # Passive defense for CLAUDE.md
+│       ├── consolidation.md             # Memory consolidation algorithm
 │       └── memory-types.md              # Detailed guide to 4 memory types
 ├── commands/
-│   └── checkpoint.md                    # /checkpoint command trigger
+│   ├── checkpoint.md                    # /checkpoint command trigger
+│   └── checkpoint/
+│       └── consolidate.md              # /checkpoint:consolidate sub-command
 ├── cursor/rules/
 │   └── checkpoint.mdc                   # Cursor AI rule
 ├── vscode/
@@ -189,7 +203,8 @@ Each rediscovery wasted 20-30 minutes. After implementing Checkpoint, the AI rea
 claude install-skill Jyo238/checkpoint
 
 # Then in any conversation:
-/checkpoint
+/checkpoint              # Save discoveries from current session
+/checkpoint:consolidate  # Deep clean: merge duplicates, fix index, flag stale entries
 ```
 
 That's it. Your AI will scan the conversation, extract key discoveries, and save them as persistent memory files. Next session, it reads them automatically.

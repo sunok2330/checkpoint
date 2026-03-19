@@ -47,8 +47,18 @@ Checkpoint 以兩層防線運作：
 明確觸發完整的知識存檔。AI 會：
 1. **掃描**對話中的所有發現
 2. **檢查**現有記憶以避免重複
-3. **儲存**新發現為結構化記憶檔案
-4. **驗證**完整性
+3. **整理** — 修復索引問題（ghost 死連結、orphan 孤立檔案、跨 scope 重複）
+4. **儲存**新發現為結構化記憶檔案（或更新已有的同主題記憶）
+5. **更新** MEMORY.md 索引
+6. **驗證**完整性並報告整理結果
+
+### 記憶整理：`/checkpoint:consolidate`
+隨著時間推移，記憶會累積重複和過時的條目。執行 `/checkpoint:consolidate` 做深度維護：
+- **重複偵測** — 找到並合併同主題的記憶（需你核准）
+- **跨 scope 解決** — 偵測 project 和 global 記憶之間的重複
+- **過時偵測** — 標記含過期日期或過時參考的 project 記憶
+- **品質檢查** — 找出缺少必要結構（Why/How to apply）的記憶
+- **索引修復** — 移除死連結、加入未索引的檔案
 
 ### 被動層：Anti-Amnesia Protocol（防失智協議）
 一組加入 `CLAUDE.md`（或等效設定檔）的規則，自動執行：
@@ -75,8 +85,9 @@ claude install-skill Jyo238/checkpoint
 
 安裝內容：
 - `/checkpoint` 斜線指令
+- `/checkpoint:consolidate` 記憶整理子命令
 - AI 遵循的技能定義
-- 記憶類型和防失智協議的參考文件
+- 記憶類型、整理演算法和防失智協議的參考文件
 
 **選用**：將 Anti-Amnesia Protocol 加入專案的 `CLAUDE.md`：
 
@@ -123,9 +134,12 @@ checkpoint/
 │   ├── SKILL.md                          # 核心技能定義
 │   └── references/
 │       ├── anti-amnesia-protocol.md      # 被動防線（貼進 CLAUDE.md）
+│       ├── consolidation.md             # 記憶整理演算法
 │       └── memory-types.md              # 四種記憶類型詳細指南
 ├── commands/
-│   └── checkpoint.md                    # /checkpoint 指令觸發器
+│   ├── checkpoint.md                    # /checkpoint 指令觸發器
+│   └── checkpoint/
+│       └── consolidate.md              # /checkpoint:consolidate 子命令
 ├── cursor/rules/
 │   └── checkpoint.mdc                   # Cursor AI 規則
 ├── vscode/

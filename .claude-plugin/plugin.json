@@ -17,6 +17,11 @@
       "name": "checkpoint",
       "path": "commands/checkpoint.md",
       "description": "Trigger memory archival"
+    },
+    {
+      "name": "checkpoint:consolidate",
+      "path": "commands/checkpoint/consolidate.md",
+      "description": "Merge duplicates, fix index, flag stale memories"
     }
   ]
 }
