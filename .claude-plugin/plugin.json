@@ -1,6 +1,6 @@
 {
   "name": "checkpoint",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Persistent memory archival — save discoveries, prevent amnesia across sessions",
   "author": "Jyo238",
   "license": "MIT",
